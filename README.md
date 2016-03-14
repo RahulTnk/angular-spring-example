@@ -4,19 +4,19 @@ Example Single Page Application - UI (AngularJS) + REST (String Boot) + Authenti
 # Modules
 This project has 3 modules:
 
-ui: 
+**ui**
 
 	- User interface developed using Angular + Bootstrap + Jquery
 	
 	- Url: http://localhost:8001/
 	
-services:
+**services**
 
 	- REST Backend developed using Spring Boot
 	
 	- Url: http://localhost:8002/services
 	
-auth:
+**auth**
 
 	- OAuth2 login portal developed using Spring Boot
 	
@@ -25,6 +25,7 @@ auth:
 # What do you need?
 - JDK 8
 - Maven	
+- PostgreSQL (or other SQL database)
 
 # Steps
 1 - Create the database using the **create_database.sql** file
