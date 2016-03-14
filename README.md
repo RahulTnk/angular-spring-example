@@ -19,6 +19,8 @@ auth:
 
 # Steps
 1 - Create the database using the **create_database.sql** file
+
 2 - Start the modules using the command **mvn spring-boot:run** inside each directory 
+
 3 - Type **http://localhost:8001/** into your browser
 
