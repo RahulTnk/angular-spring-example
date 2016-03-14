@@ -1,5 +1,5 @@
-# Angular Spring Example
-Example Single Page Application - UI (AngularJS) + REST (String Boot) + Authentication (OAuth - Spring Boot)
+# Angular + Spring Boot Single Page Application
+Example project of a Single Page Application developed using- AngularJS (UI) + String Boot (Backend) + OAuth2 (Authentication)
 
 # Modules
 This project has 3 modules:
