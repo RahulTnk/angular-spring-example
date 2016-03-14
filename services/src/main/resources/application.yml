@@ -1,0 +1,20 @@
+server:
+  port: 8002
+  context-path: /services
+  address: 127.0.0.1
+  
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/testdb
+    username: testuser
+    password: s3cr3t
+    driver-class-name: org.postgresql.Driver
+    schema: spaexample
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:8003/auth/user
+      
+logging:
+  level:
+    org.springframework.security: DEBUG     
+debug: true         

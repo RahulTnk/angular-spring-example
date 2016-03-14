@@ -1,0 +1,15 @@
+server:
+  port: 8003
+  context-path: /auth
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/testdb?currentSchema=auth
+    username: testuser
+    password: s3cr3t
+    driver-class-name: org.postgresql.Driver
+    schema: auth
+  freemarker:
+    suffix: .html
+logging:
+  level:
+    org.springframework.security: INFO     

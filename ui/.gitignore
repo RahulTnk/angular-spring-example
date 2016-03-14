@@ -1,0 +1,7 @@
+/target/
+/npm-debug.log
+/start.log
+/.settings/
+/.classpath
+/.project
+/.springBeans
