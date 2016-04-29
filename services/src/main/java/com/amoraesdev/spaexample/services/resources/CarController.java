@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.amoraesdev.spaexample.services.entities.Car;
+import com.amoraesdev.spaexample.services.exceptions.NotFoundException;
 import com.amoraesdev.spaexample.services.repositories.CarRepository;
 
 @RestController
@@ -27,12 +28,17 @@ public class CarController {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Car findById(@PathVariable Long id){
-		return repo.findOne(id);
+	public Car findById(@PathVariable Long id) throws NotFoundException{
+		Car car = repo.findOne(id);
+		if(car == null){
+			throw new NotFoundException("Car", id);
+		}
+		return car;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public Car insertCar(@RequestBody Car car){
+		validateCar(car);
 		car.setId(null);
 		car = repo.saveAndFlush(car);
 		return car;
@@ -40,6 +46,7 @@ public class CarController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public Car updateCarro(@RequestBody Car car, @PathVariable Long id){
+		validateCar(car);
 		car.setId(id);
 		car = repo.saveAndFlush(car);
 		return car;
@@ -49,4 +56,17 @@ public class CarController {
 	public void deleteCar(@PathVariable Long id){
 		repo.delete(id);
 	}
+	
+	private void validateCar(Car car) throws IllegalArgumentException {
+		if(car.getBrand() == null){
+			throw new IllegalArgumentException("Brand is a required field");
+		}
+		if(car.getModel() == null){
+			throw new IllegalArgumentException("Model is a required field");
+		}
+		if(car.getPrice() == null){
+			throw new IllegalArgumentException("Price is a required field");
+		}		
+	}
+
 }

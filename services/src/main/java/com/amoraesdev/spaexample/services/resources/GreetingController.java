@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetingController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public Principal findAll(Principal user){
+	public Principal getUser(Principal user){
 		return user;
 	}
 	
